@@ -11,7 +11,7 @@ from rest_framework.generics import ListAPIView
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
-        'List':'list-credit',
+        'List':'list-service',
 }
     return Response(api_urls)
 

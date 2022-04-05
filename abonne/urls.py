@@ -7,6 +7,8 @@ routerAbonne.register('',AbonneViewSet)
 
 urlpatterns = [
     path('', views.list_abonne),
+    path(r'^abonne/$', views.abonneApi),
+    path(r'^abonne/([0-9]+)$', views.abonneApi),
 
 ]
 

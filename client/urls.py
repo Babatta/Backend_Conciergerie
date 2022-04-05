@@ -10,6 +10,8 @@ routerClient.register('',ClientViewSet)
 
 urlpatterns = [
     path('', views.list_client),
+    path(r'^client/$', views.clientApi),
+    path(r'^client/([0-9]+)$', views.clientApi),
 
 ]
 

@@ -9,6 +9,8 @@ routerAdministrateur.register('',AdministrateurViewSet)
 
 urlpatterns = [
     path('', views.list_administrateur),
+    path(r'^administrateur/$', views.administrateurApi),
+    path(r'^administrateur/([0-9]+)$', views.administrateurApi),
 
 ]
 

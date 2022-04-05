@@ -5,7 +5,9 @@ import abonne
 
 
 class Abonne(models.Model):
-    utilisateur = models.ForeignKey(Utilisateur, on_delete=models.CASCADE)
-    # number = models.PositiveSmallIntegerField(default=1)
+    utilisateur = models.OneToOneField(Utilisateur, on_delete=models.CASCADE)
+
 def __str__(self):
-        return self.utilisateur
+    # if not self.utiliisateur:
+    #     return ""
+    return str(self.utilisateur.nom)

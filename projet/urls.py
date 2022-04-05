@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.contrib import admin
 from django.urls import path,include
 from rest_framework import routers
@@ -29,6 +31,8 @@ from publication.urls import routerPublication as publication_router
 from rubrique.urls import routerRubrique as rubrique_router
 from service.urls import routerService as service_router
 
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 routerUtilisateur = routers.DefaultRouter()
@@ -70,6 +74,7 @@ routerService.registry.extend(service_router.registry)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(routerUtilisateur.urls)),
+
     path('abonne', include(routerAbonne.urls)),
     path('administrateur', include(routerAdministrateur.urls)),
     path('boite', include(routerBoite.urls)),
@@ -82,4 +87,5 @@ urlpatterns = [
     path('rubrique', include(routerRubrique.urls)),
     path('service', include(routerService.urls)),
 
-]
+
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
